@@ -189,5 +189,48 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"src/js/mui.min.js",
+					"src/css/mui.min.css",
+					"/views/register/register.html"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"src/fonts/mui.ttf",
+				"views/login/js/mui.locker.js",
+				"views/login/reg.html",
+				"src/less/common.less",
+				"views/login/js/app.js",
+				"views/login/css/style.css",
+				"src/css/register.css",
+				"views/login/unlock.html",
+				"views/register/register.html",
+				"views/login/images/sinaweibo.png",
+				"package.json",
+				"views/login/images/iconfont-tianjia.png",
+				"views/login/images/qihoo.png",
+				"src/js/mui.js",
+				"src/css/common.css",
+				"views/login/README.md",
+				"gulpfile.js",
+				"views/login/images/weixin.png",
+				"views/login/images/user-photo.png",
+				"views/login/js/mui.enterfocus.js",
+				"src/less/register.less",
+				"views/login/images/qq.png",
+				"views/login/login.html",
+				"views/login/main.html",
+				"views/login/forget_password.html",
+				"src/css/mui.css"
+			]
+		}
 	}
 }

@@ -1,0 +1,12 @@
+{
+	"index.html": {
+		"resources": [
+			"src/js/mui.min.js",
+			"src/css/mui.min.css",
+			"/views/register/register.html"
+		],
+		"refer": [
+			"/views/register/register.html"
+		]
+	}
+}

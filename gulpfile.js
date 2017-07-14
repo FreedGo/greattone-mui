@@ -5,13 +5,11 @@
  */
 
 var gulp      = require('gulp');
-// var scp       = require('gulp-scp2');//上传到服务器，相当于全部文档全部复制
-// var rsync     = require('gulp-rsync');//同步到服务器，相当于把修改后的文件同步到服务器；性能更好
 var uglify    = require('gulp-uglify');//获取 uglify 模块（用于压缩 JS）;
-var minifyCSS = require('gulp-minify-css');//gulp-minify-css用于压缩CSS;
 var cssnano   = require('gulp-cssnano');
 var rename    = require('gulp-rename');//gulp-rename 用于重命名
 var sourcemaps = require('gulp-sourcemaps');//用于检查js压缩报错
+var less      = require('gulp-less');
 
 /**
  * 压缩所有js和css
@@ -83,6 +81,19 @@ gulp.task('watchjs', function () {
 					console.log(err);
 				})
 
+	})
+});
+/**
+ * 监听js修改，并上传服务器
+ */
+gulp.task('less', function () {
+	// 监听文件修改，当文件被修改则执行 js，css 任务
+	gulp.watch('./src/less/*.less',function (e) {
+		gulp.src(e.path)
+			// 2. 压缩文件
+			.pipe(less())
+			// 4. 另存压缩后的文件
+			.pipe(gulp.dest('./src/css/'))
 	})
 });
 /**
