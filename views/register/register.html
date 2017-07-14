@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 355px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			.reg-warp{
+				padding-top: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">注册</h1>
+			<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+				登录
+			</button>
+		</header>
+		<div class="mui-content">
+			<div class="reg-warp">
+				<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile">
+						常规注册
+					</a>
+					<a class="mui-control-item" href="#item2mobile">
+						快捷注册
+					</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div class="mui-content-padded" style="margin: 5px;">
+							<h5>密码框：</h5>
+							<div class="mui-input-row mui-password">
+								<input type="password" class="mui-input-password">
+							</div>
+							<form class="mui-input-group">
+								<div class="mui-input-row">
+									<input type="text" class="mui-input-clear" placeholder="用户名6-16位英文字符及数字">
+								</div>
+								<div class="mui-input-row">
+									<input type="text" class="mui-input-clear" placeholder="手机号">
+								</div>
+								<div class="mui-input-row">
+									<input type="text" class="mui-input-clear" placeholder="验证码">
+								</div>
+								<div class="mui-input-row">
+									<input type="password" class="mui-input-clear mui-input-password" placeholder="密码6-16位英文，符号及数字">
+								</div>
+								<div class="mui-input-row">
+									<input type="password" class="mui-input-clear mui-input-password" placeholder="确认密码">
+								</div>
+								<div class="mui-input-row">
+									<label>Input</label>
+									<input type="text" class="mui-input-clear " placeholder="带清除按钮的输入框">
+								</div>
+			
+								<div class="mui-input-row mui-plus-visible">
+									<label>Input</label>
+									<input type="text" class="mui-input-speech mui-input-clear" placeholder="语音输入">
+								</div>
+								
+		        				<button type="button" class="mui-btn mui-btn-success mui-btn-block">Block button</button>
+								
+							</form>
+						
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			
+			
+				
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			(function($) {
+				$('.mui-scroll-wrapper').scroll({
+					indicators: true //是否显示滚动条
+				});
+				var html2 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第二个选项卡子项-1</li><li class="mui-table-view-cell">第二个选项卡子项-2</li><li class="mui-table-view-cell">第二个选项卡子项-3</li><li class="mui-table-view-cell">第二个选项卡子项-4</li><li class="mui-table-view-cell">第二个选项卡子项-5</li></ul>';
+
+				var item2 = document.getElementById('item2mobile');
+
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					if (e.detail.slideNumber === 1) {
+						if (item2.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								item2.querySelector('.mui-scroll').innerHTML = html2;
+							}, 500);
+						}
+					} else if (e.detail.slideNumber === 2) {
+						if (item3.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								item3.querySelector('.mui-scroll').innerHTML = html3;
+							}, 500);
+						}
+					}
+				});
+				var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
+				$('.mui-input-group').on('change', 'input', function() {
+					if (this.checked) {
+						sliderSegmentedControl.className = 'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
+						//force repaint
+						sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
+					}
+				});
+			})(mui);
+		</script>
+
+	</body>
+</html>
